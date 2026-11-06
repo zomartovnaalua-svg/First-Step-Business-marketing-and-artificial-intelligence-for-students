@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>First Step — Zhomart Alua (111 pages)</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,800;1,500&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0E1F3C;--gold:#C9A24B;--paper:#FBFAF7;--ink:#1B2236;--muted:#6A7285;--stage:#0A1427;--rule:#dcd8cc;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--stage:#04090F}}
+:root[data-theme="dark"]{--stage:#04090F}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;min-height:100%;background:radial-gradient(circle at 50% 0,#1d3a63 0,var(--stage) 62%);color:#fff;font:400 16px/1.6 Lora,Georgia,serif;display:flex;flex-direction:column;align-items:center}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;margin:0;line-height:1.15}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.top{padding:16px;font-size:14px;color:#c4cfe2;text-align:center}
+.stage{position:relative;width:min(92vw,520px);aspect-ratio:3/4.3;perspective:1800px}
+.page{position:absolute;inset:0;background:var(--paper);color:var(--ink);border-radius:3px 12px 12px 3px;box-shadow:0 30px 60px rgba(0,0,0,.55),inset 14px 0 20px -12px rgba(0,0,0,.3);overflow:auto;opacity:0;pointer-events:none;transform-origin:left center;transform:rotateY(-80deg);transition:transform .6s cubic-bezier(.2,.7,.2,1),opacity .4s}
+.page.on{opacity:1;pointer-events:auto;transform:none}
+.pad{padding:9% 11% 6%;min-height:100%;display:flex;flex-direction:column}
+.run{font-size:12px;color:var(--muted);font-style:italic;border-bottom:1px solid var(--rule);padding-bottom:6px;margin-bottom:16px;display:flex;justify-content:space-between}
+.pn{margin-top:auto;padding-top:14px;text-align:center;font-size:13px;color:var(--muted)}
+.page h2{font-size:clamp(24px,5.8vw,34px);font-weight:800;margin:0 0 14px}
+.page p{margin:0 0 12px;font-size:clamp(15px,3.1vw,17px);line-height:1.7}
+.big{font:800 clamp(70px,20vw,110px)/.9 "Playfair Display",serif;color:var(--gold);margin:6px 0 14px}
+.lbl{font-size:13px;color:var(--muted);font-style:italic}
+.notes{margin-top:18px;flex:1;min-height:90px;background:repeating-linear-gradient(transparent 0 27px,var(--rule) 27px 28px);border-top:1px solid var(--rule)}
+.notes small{color:var(--muted);font-size:12px;background:var(--paper)}
+.cover{background:linear-gradient(160deg,#16305A,var(--navy));color:#fff}
+.cover .in{position:absolute;inset:14px;border:2px solid var(--gold);border-radius:2px 8px 8px 2px;padding:9% 8%;display:flex;flex-direction:column;align-items:center;text-align:center}
+.cover .au{font:500 17px "Playfair Display",serif;letter-spacing:.04em;color:#e8d9aa}
+.cover h1{font-size:clamp(46px,13vw,76px);font-weight:800;margin:auto 0 8px}
+.cover .st{font-style:italic;color:#c4cfe2;font-size:clamp(14px,3.4vw,17px);max-width:26ch}
+.cover svg{width:56%;margin:22px 0 auto}
+.cover .yr{font-size:13px;color:#9fb0cc;margin-top:auto}
+.op{background:var(--navy);color:#fff}
+.op .pad{justify-content:center}
+.op .big{color:var(--gold)}
+.op h2{color:#fff;font-size:clamp(28px,7vw,40px)}
+.op p{color:#c4cfe2}
+.toc{list-style:none;margin:0;padding:0}
+.toc li{display:flex;align-items:baseline;gap:8px;padding:6px 0;cursor:pointer;font-size:clamp(13px,2.8vw,15px)}
+.toc li span.d{flex:1;border-bottom:1px dotted #b9b4a4;transform:translateY(-3px)}
+.toc li:hover b{color:#b0471f}
+.tp{align-items:center;text-align:center;justify-content:center}
+.tp h1{font-size:clamp(34px,9vw,50px);font-weight:800}
+.tp .rl{width:60px;height:3px;background:var(--gold);margin:18px auto}
+.small{font-size:12.5px!important;color:var(--muted);text-align:center}
+.nav{display:flex;gap:12px;align-items:center;margin:18px 0 8px}
+.nav button{background:var(--gold);color:var(--navy);border:0;border-radius:999px;padding:11px 24px;font:600 15px Lora,serif;cursor:pointer}
+.nav button:disabled{opacity:.35;cursor:default}
+.nav span{min-width:120px;text-align:center;font-size:14px;color:#c4cfe2}
+.scrub{width:min(92vw,520px);accent-color:#C9A24B;margin-bottom:6px}
+.jump{display:flex;gap:8px;align-items:center;font-size:14px;color:#c4cfe2;margin-bottom:24px}
+.jump input[type=number]{width:70px;padding:6px 8px;border-radius:8px;border:1px solid #3a5f8f;background:#0F2847;color:#fff;font:inherit}
+@media (prefers-reduced-motion:reduce){.page{transition:opacity .2s;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="top">E-book · 111 pages</div>
+<div class="stage" id="stage"></div>
+<div class="nav"><button id="prev" type="button">Back</button><span id="count"></span><button id="next" type="button">Next</button></div>
+<input class="scrub" id="scrub" type="range" min="1" value="1" aria-label="Scrub through pages">
+<div class="jump"><label for="pg">Go to page</label><input id="pg" type="number" min="1" inputmode="numeric"></div>
+<script>
+var CH=[
+["Ideas","A good idea starts with someone else’s problem, not with your own wish.",["Start with a problem|Ask five people what annoys them. Ideas grow out of complaints.","Observe|Write down ten small inconveniences in a day. Each could become a service.","Test demand|Show your idea to ten people and ask if they would pay.","One customer|Describe your ideal customer in one sentence: who they are and what they want.","Do not copy blindly|Take an existing idea and improve one detail for your own area.","Write it down|An idea on paper becomes a plan. Note the goal, customer and price."]],
+["First Customers","The first customer almost always comes from your close circle.",["Start close|Relatives and friends give honest feedback and first orders.","Trial order|Offer the first order at a discount, but ask for a review.","A short message|Say who you are, what you do and the price in three lines.","Show examples|Three good samples convince better than long explanations.","Keep your word|Deadlines and quality matter more than discounts.","Ask for referrals|Ask a happy customer who else might need your service."]],
+["Pricing and Profit","A price should cover costs, your time and a small reserve.",["Profit|Profit equals income minus costs. Count it after every order.","Count your time|If an hour of work earns too little, raise the price.","Do not underprice|A price that is too low signals weak quality and does not repay effort.","Service packages|Offer small, medium and large options so customers can choose.","Cost of goods|Write down all costs for materials, tools and services.","Test prices|Try a new price on a few customers and compare results."]],
+["Money","Money must be tracked, or you will not know whether you are growing.",["A simple table|Date, income, cost, comment. Four columns solve a lot.","Three parts|Split money into needs, wants and savings.","Pay yourself first|Set aside part of your income as soon as you receive it.","A goal with a date|Saving a set amount by a date beats a vague dream.","A cushion|A small reserve helps you survive an empty month calmly.","Be careful with debt|Do not borrow for a project before testing demand on a small scale."]],
+["Marketing","Marketing explains to people why they should choose you.",["One customer|Speak to one specific person, not to everyone at once.","One platform|One channel done well beats five done badly.","The hook|The first two seconds decide whether people watch to the end.","Value|Every post should teach, help or inspire.","Consistency|Post on a schedule rather than in bursts.","Metrics|Watch saves, shares and messages, not only likes."]],
+["Sales","Selling is helping a person make a decision.",["Listen|Ask a question first, then offer a solution.","Speak in benefits|Explain what the customer gets, not how it is made.","Handling refusal|A refusal is data. Ask what stopped them and write it down.","A clear offer|State service, price, deadline and payment method in one message.","Mind your promises|Promise less than you can deliver and do slightly more.","Say thanks|Thank the customer and tell them how to reach you again."]],
+["Personal Brand","A brand is what people think of you when you are not in the room.",["Topic|Choose two or three topics and show only those.","Style|The same colors and fonts make a project recognizable.","Stories|Tell what worked and what did not. People trust experience.","Portfolio|Add work with results: task, actions, outcome.","Profile|A short bio, a photo and contact details must be easy to find.","Honesty|Do not exaggerate success. Trust is worth more than any impression."]],
+["AI for Study","Artificial intelligence is a coach, not a homework machine.",["Levels|Ask it to explain a topic simply first, then in more depth.","Quizzes|Let AI ask questions on the topic and check your answers.","Weak spots|Upload a draft and ask where the logic is shaky.","Do not copy|The text must stay yours. AI helps you think.","Verify|Check names, dates and numbers in a textbook or official site.","Plan|Ask for a study schedule and adjust it to your life."]],
+["AI for Projects","In a project, AI speeds up drafts, but a human makes the decisions.",["Ideas|Ask for twenty name options and choose the best yourself.","Instructions|A good prompt contains a role, a goal and an answer format.","Drafts|Use AI for a first version, then rewrite it in your own style.","Analysis|Give it a table and ask for patterns, then verify by hand.","Templates|Create plan and checklist templates and improve them from feedback.","Ethics|Do not pass off AI work as handmade where rules forbid it."]],
+["Design","Simple, tidy design makes a project look reliable.",["Few fonts|Two fonts are enough for most projects.","Contrast|Text must be easy to read against the background.","White space|Empty space rests the eyes and highlights what matters.","Colors|Pick three main colors and stick to them.","Samples|Collect designs you like and find what they share.","Test|Show a layout to a friend for five seconds and ask what they remember."]],
+["Teamwork","A team is strong when roles and expectations are clear to everyone.",["Roles|Decide who is responsible for what before work begins.","Strengths|Look for people who are strong where you are weak.","Meetings|A short weekly meeting beats long rare ones.","Feedback|Talk about the work, not the person, and suggest a fix.","Agreements|Write down tasks and deadlines so you do not argue later.","Gratitude|Recognize everyone’s contribution. It keeps a team together."]],
+["Time","Discipline matters more than inspiration when a project is a month old.",["Weekly plan|On Sunday pick three main tasks for the week.","Time blocks|Work for forty minutes, then take a short break.","Cut distractions|Turn off notifications during important tasks.","School comes first|A project must not hurt your grades. Choose balance.","Sleep|Lack of sleep lowers the quality of any work.","Review|At the end of the week note what worked and what to change."]],
+["Mistakes","A mistake is data if you record it and review it.",["Review|Write what happened, why, and what you will change.","Small tests|Test ideas at small scale so mistakes cost less.","Do not quit early|First attempts are rarely the best ones.","Ask for help|Seek advice from someone who has done something similar.","Do not hide|An admitted mistake is fixed faster than a hidden one.","Rest|Fatigue blocks solutions. A break is part of the work."]],
+["Law and Safety","Safety and law are the foundation of any honest business.",["Ask adults|Talk to your parents before selling or meeting customers.","Age rules|Find out local rules for teenage work and trade.","Personal data|Never publish your address, documents or bank card data.","Safe meetings|Meet customers in public places and tell someone where you are.","Copyright|Use only your own photos, fonts and music, or ones with permission.","Honest ads|Do not promise what you cannot deliver."]],
+["Portfolio","A portfolio shows what you can do, not what you plan to do.",["Three works|Start with your three best projects instead of twenty weak ones.","The formula|For each project write the task, the actions and the result.","Evidence|Add photos, screenshots, reviews and links.","Update|Once a month add new work and remove outdated items.","Recommendations|Ask a teacher or customer to write a short review.","Next step|Set a goal for the year and split it into quarters."]]
+];
+var H=[],titles=[];
+function add(c,h,l){H.push('<article class="page '+c+'" aria-label="'+l+'">'+h+'</article>')}
+function pn(n){return '<div class="pn">— '+n+' —</div>'}
+function run(r){return '<div class="run"><span>First Step</span><span>'+r+'</span></div>'}
+// 1 cover
+add("cover",'<div class="in"><div class="au">ZHOMART ALUA</div><h1>First Step</h1><div class="st">Business, marketing and artificial intelligence for students</div><svg viewBox="0 0 200 140" role="img" aria-label="Illustration of rising steps"><g fill="#C9A24B"><rect x="10" y="100" width="36" height="30"/><rect x="52" y="80" width="36" height="50"/><rect x="94" y="58" width="36" height="72"/><rect x="136" y="34" width="36" height="96"/></g><path d="M20 80 L70 56 L112 38 L168 8" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="170" cy="8" r="6" fill="#fff"/></svg><div class="yr">2026</div></div>',"Cover");
+// 2 title
+add("",'<div class="pad tp"><h1>First Step</h1><div class="rl"></div><p style="font-style:italic">Business, marketing and artificial intelligence for students</p><p style="font:500 20px Playfair Display,serif;margin-top:34px">Zhomart Alua</p><p class="small">author, age 16</p><p class="small" style="margin-top:auto">© 2026 Zhomart Alua. All rights reserved.<br>This book is educational and is not financial advice.</p></div>',"Title page");
+// 3 preface
+add("",'<div class="pad">'+run("From the Author")+'<h2>From the Author</h2><p>This book was written by a teenager for teenagers. It has no complicated terms and no promises of quick millions.</p><p>The author is 16, so the book speaks the language of students. There are 15 chapters: each has a short introduction and six practical tips, one per page.</p><p>Read in order or open any chapter from the contents. Next to every tip there is room for notes: try things and write down what happened.</p>'+pn(3)+'</div>',"From the Author");
+// 4 toc
+var toc='<div class="pad">'+run("Contents")+'<h2>Contents</h2><ul class="toc">';
+CH.forEach(function(c,i){var p=5+i*7;toc+='<li data-p="'+(p-1)+'"><b>'+(i+1)+'. '+c[0]+'</b><span class="d"></span><span>'+p+'</span></li>'});
+toc+='<li data-p="109"><b>Final plan</b><span class="d"></span><span>110</span></li><li data-p="110"><b>About the Author</b><span class="d"></span><span>111</span></li></ul>'+pn(4)+'</div>';
+add("",toc,"Contents");
+// chapters
+var n=4;
+CH.forEach(function(c,i){n++;
+add("op",'<div class="pad"><div class="lbl" style="color:#9fb0cc">Chapter '+(i+1)+'</div><div class="big">'+(i+1)+'</div><h2>'+c[0]+'</h2><p>'+c[1]+'</p>'+pn(n).replace('class="pn"','class="pn" style="color:#9fb0cc"')+'</div>',c[0]);
+c[2].forEach(function(t,j){n++;var a=t.split("|");
+add("",'<div class="pad">'+run("Chapter "+(i+1)+". "+c[0])+'<div class="lbl">Tip '+(i+1)+'.'+(j+1)+'</div><h2>'+a[0]+'</h2><p>'+a[1]+'</p><div class="notes"><small>My notes</small></div>'+pn(n)+'</div>',a[0])})});
+// plan
+add("",'<div class="pad">'+run("Final plan")+'<h2>30-day plan</h2><p><b>Week 1.</b> Choose an idea and talk to five potential customers.</p><p><b>Week 2.</b> Prepare a simple version, a price and a message for customers.</p><p><b>Week 3.</b> Find first customers, complete an order and ask for a review.</p><p><b>Week 4.</b> Calculate profit, write your conclusions and decide what to improve.</p><p class="small" style="text-align:left">Before selling or meeting customers, talk to your parents and follow local laws and school rules.</p>'+pn(110)+'</div>',"Final plan");
+// author
+add("",'<div class="pad">'+run("About the Author")+'<h2>About the Author</h2><p><b>Zhomart Alua</b>, 16. Author of “First Step”. Interested in business, marketing, artificial intelligence and entrepreneurship.</p><p>The goal of this project is to help students take their first steps in entrepreneurship and to show that you can start at any age.</p><p class="small" style="text-align:left;margin-top:20px">Thank you for reading. Feedback and ideas for future editions are welcome.</p>'+pn(111)+'</div>',"About the Author");
+var st=document.getElementById("stage");st.innerHTML=H.join("");
+var pages=[].slice.call(st.children),i=0,sc=document.getElementById("scrub"),pg=document.getElementById("pg");
+sc.max=pages.length;pg.max=pages.length;
+function go(k){i=Math.max(0,Math.min(pages.length-1,k));pages.forEach(function(p,j){p.classList.toggle("on",j===i);p.style.transform=j<i?"rotateY(-80deg)":"";if(Math.abs(j-i)<2)p.scrollTop=0});
+document.getElementById("prev").disabled=i===0;document.getElementById("next").disabled=i===pages.length-1;
+document.getElementById("count").textContent=i===0?"Cover":"Page "+(i+1)+" of "+pages.length;sc.value=i+1}
+document.getElementById("prev").onclick=function(){go(i-1)};document.getElementById("next").onclick=function(){go(i+1)};
+sc.addEventListener("input",function(){go(+sc.value-1)});
+pg.addEventListener("change",function(){go((+pg.value||1)-1)});
+document.addEventListener("keydown",function(e){if(e.target===pg||e.target===sc)return;if(e.key==="ArrowRight")go(i+1);if(e.key==="ArrowLeft")go(i-1)});
+st.addEventListener("click",function(e){var li=e.target.closest("li[data-p]");if(li)go(+li.dataset.p)});
+var sx=0;st.addEventListener("touchstart",function(e){sx=e.touches[0].clientX},{passive:true});
+st.addEventListener("touchend",function(e){var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>60)go(i+(d<0?1:-1))});
+go(0);
+</script>
+</body>
+</html>
